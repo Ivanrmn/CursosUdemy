@@ -4,11 +4,16 @@
 <h3>Selector de colores</h3>
 <button (click)="logColorSeleccionado()">Mostrar log</button>
 <input type="text" [(ngModel)]="color_seleccionado"/>
+
 <pre [style.border] ="color_seleccionado == 'red' ? '5px solid black' : '1px solid green'"
-[class.fondoAzul]="color_seleccionado == 'blue'"
+[ngClass]="{
+    fondoAzul: color_seleccionado == 'blue',
+    fondoVerde: color_seleccionado == 'green'
+}"
 >
     <strong>Color elegido:</strong> 
-    {{color_seleccionado}}</pre>
+    {{color_seleccionado}}
+</pre>
 
 <div [ngStyle]="{
     'background':color_seleccionado, 'color': 'white', 'height': '200px','width': '200px', 'float': 'right',
@@ -67,5 +72,3 @@
         </ul>
     </li>
 </ul>
-
-<hr/>
